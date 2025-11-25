@@ -679,7 +679,11 @@
             sendBtn.disabled = true;
 
             // Gemini API Setup
-            const apiKey = "AIzaSyBKVdtTWvYRlsDkVyoChlhyOpZdyhRU9Ng"; // Runtime injection
+            // NOTE: This key is restricted
+            // It will fail if run in other environments (like local previews).
+            const apiKey = "AIzaSyBKVdtTWvYRlsDkVyoChlhyOpZdyhRU9Ng"; 
+            
+            // Using the standard generative language endpoint
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
             const systemPrompt = `
@@ -719,6 +723,21 @@
                     body: JSON.stringify(payload)
                 });
 
+                // Improved Error Handling for restricted keys
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('API Request Failed:', errorData); // Log specific Google API error
+                    
+                    let errorMsg = "I apologize, but I am currently unable to connect to the beauty network.";
+                    
+                    // Check for common permission errors
+                    if (response.status === 403 || response.status === 400) {
+                        errorMsg += " (Access Restricted: Please ensure this site is running on the allowed domain)";
+                    }
+                    
+                    throw new Error(`API Error: ${response.status} ${JSON.stringify(errorData)}`);
+                }
+
                 const data = await response.json();
                 
                 // Remove loading message
@@ -731,11 +750,12 @@
                     const formattedReply = reply.replace(/\n/g, '<br>');
                     appendBotMessage(formattedReply);
                 } else {
-                    appendBotMessage("I apologize, but I am currently unable to connect to the beauty network. Please try again later or call us directly. ✨");
+                    console.error('Unexpected API Response Structure:', data);
+                    appendBotMessage("I apologize, but I received an unexpected response from the network. Please try again. ✨");
                 }
 
             } catch (error) {
-                console.error('API Error:', error);
+                console.error('General Error:', error);
                 loadingMsg.remove();
                 sendBtn.disabled = false;
                 appendBotMessage("I apologize, but I'm having trouble connecting right now. Please call us at 098190 20670 for immediate assistance.");
