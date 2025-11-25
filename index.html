@@ -678,30 +678,9 @@
             const loadingMsg = appendBotMessage('', true);
             sendBtn.disabled = true;
 
-            // API Key Handling
-            // --------------------------------------------------------
-            // Option 1: For this Preview Environment
-            const apiKey = ""; // AUTOMATICALLY INJECTED. DO NOT EDIT.
-            
-            // Option 2: For GitHub Pages / Public Hosting
-            // 1. Get a key from Google AI Studio.
-            // 2. Restrict it to your domain (e.g., https://yourname.github.io) in Google Cloud Console.
-            // 3. Paste it inside the quotes below:
-            const manualApiKey = "AIzaSyBKVdtTWvYRlsDkVyoChlhyOpZdyhRU9Ng"; 
-
-            // Use the manual key if the injected one is missing (which happens outside the preview env)
-            const finalApiKey = apiKey || manualApiKey;
-
-            if (!finalApiKey) {
-                appendBotMessage("⚠️ Configuration Error: No API Key found. <br>To deploy this on GitHub Pages, open the code and paste your restricted API Key into the `manualApiKey` variable in the script section.");
-                sendBtn.disabled = false;
-                loadingMsg.remove();
-                return;
-            }
-            // --------------------------------------------------------
-
-            // CHANGED MODEL TO gemini-1.5-flash (STABLE VERSION)
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${finalApiKey}`;
+            // Gemini API Setup
+            const apiKey = "AIzaSyBKVdtTWvYRlsDkVyoChlhyOpZdyhRU9Ng"; // Runtime injection
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
             const systemPrompt = `
                 You are a sophisticated, high-end AI Beauty Consultant for "Belleza Salon Thane". 
@@ -752,27 +731,14 @@
                     const formattedReply = reply.replace(/\n/g, '<br>');
                     appendBotMessage(formattedReply);
                 } else {
-                    // ERROR DEBUGGING MODE
-                    // If we get here, something is wrong with the key or the request.
-                    console.error("API Error details:", data);
-                    
-                    if (data.error) {
-                        // Show the ACTUAL Google Error message on screen
-                        appendBotMessage(`⚠️ <strong>Connection Error:</strong> ${data.error.message}<br><br><em>(Check Google Cloud Console > Credentials > Key Restrictions)</em>`);
-                    } else if (data.candidates && data.candidates[0].finishReason) {
-                        // Show Safety Filter reason
-                        appendBotMessage(`⚠️ <strong>Response Blocked:</strong> Reason: ${data.candidates[0].finishReason}`);
-                    } else {
-                        // Show raw data for debugging
-                        appendBotMessage(`⚠️ <strong>Unknown Error:</strong> <pre class="text-xs bg-black/30 p-2 rounded mt-2">${JSON.stringify(data, null, 2)}</pre>`);
-                    }
+                    appendBotMessage("I apologize, but I am currently unable to connect to the beauty network. Please try again later or call us directly. ✨");
                 }
 
             } catch (error) {
                 console.error('API Error:', error);
                 loadingMsg.remove();
                 sendBtn.disabled = false;
-                appendBotMessage(`⚠️ <strong>Network Error:</strong> ${error.message}. <br>Please check your internet connection.`);
+                appendBotMessage("I apologize, but I'm having trouble connecting right now. Please call us at 098190 20670 for immediate assistance.");
             }
         }
     </script>
