@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belleza Salon Thane | Beauty & Makeup Academy</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Tailwind Configuration for Specific Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1a1a1a',      // Deep Charcoal
+                            cream: '#f5f5dc',     // Soft Beige
+                            gold: '#d4af37',      // Luxury Gold
+                            goldHover: '#b5952f',
+                            light: '#fcfcfc',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37; 
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(26,26,26,0.7), rgba(26,26,26,0.9));
+        }
+
+        /* Fade Animation */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-stone-200 font-sans antialiased selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- Section 1: Header & Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-brand-dark/95 backdrop-blur-md border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Branding -->
+            <a href="#" class="text-2xl md:text-3xl font-serif font-bold text-brand-gold tracking-wide">
+                Belleza Salon <span class="text-white text-lg font-sans font-light tracking-widest block md:inline md:ml-2">THANE</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#hero" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors">Home</a>
+                <a href="#services" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors">Services</a>
+                <a href="#academy" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors">Academy</a>
+                <a href="#reviews" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors">Reviews</a>
+                <a href="#contact" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors">Contact</a>
+                <a href="tel:09819020670" class="bg-brand-gold text-brand-dark px-6 py-2 rounded-full font-semibold hover:bg-brand-cream transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                    Book Now
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-t border-white/10 absolute w-full">
+            <div class="flex flex-col px-6 py-4 space-y-4 text-center">
+                <a href="#hero" class="block py-2 hover:text-brand-gold" onclick="closeMenu()">Home</a>
+                <a href="#services" class="block py-2 hover:text-brand-gold" onclick="closeMenu()">Services</a>
+                <a href="#academy" class="block py-2 hover:text-brand-gold" onclick="closeMenu()">Academy</a>
+                <a href="#reviews" class="block py-2 hover:text-brand-gold" onclick="closeMenu()">Reviews</a>
+                <a href="#contact" class="block py-2 hover:text-brand-gold" onclick="closeMenu()">Contact</a>
+                <a href="tel:09819020670" class="block bg-brand-gold text-brand-dark py-3 rounded-lg font-bold">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 2: Hero -->
+    <section id="hero" class="relative h-screen min-h-[600px] flex items-center justify-center pt-16">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?q=80&w=2036&auto=format&fit=crop" alt="Luxurious Salon Interior" class="w-full h-full object-cover">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-6 text-center">
+            <div class="inline-block mb-4 px-4 py-1 border border-brand-gold/50 rounded-full bg-black/30 backdrop-blur-sm">
+                <span class="text-brand-gold uppercase text-xs tracking-[0.2em]">Since 1995</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                30 Years of Beauty <br/> <span class="text-brand-gold italic">Excellence & Transformation</span>
+            </h1>
+            <p class="text-lg md:text-xl text-stone-300 max-w-2xl mx-auto mb-10 font-light">
+                The fusion of Beauty Parlour pampering and Professional Makeup Artistry in the heart of Thane.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-brand-gold text-brand-dark px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg">
+                    Book an Appointment
+                </a>
+                <a href="#services" class="border border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-brand-dark transition-all duration-300">
+                    View Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Core Services -->
+    <section id="services" class="py-20 bg-brand-dark relative overflow-hidden">
+        <!-- Decorative bg element -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-serif text-white mb-4">Our Expertise</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Parlour -->
+                <div class="relative overflow-hidden p-8 rounded-xl shadow-2xl group min-h-[400px] flex flex-col justify-end">
+                    <!-- Background Image -->
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop" alt="Spa Facial" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-300"></div>
+                    </div>
+                    
+                    <div class="relative z-10 text-white">
+                        <div class="w-16 h-16 bg-brand-gold rounded-full flex items-center justify-center mb-6 text-brand-dark">
+                            <i data-lucide="sparkles" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold mb-4 border-b border-white/20 pb-2">Beauty Parlour</h3>
+                        <p class="text-stone-200 mb-4">
+                            Indulge in our signature relaxing facials, manicures, and complete pampering sessions designed to rejuvenate your skin and spirit.
+                        </p>
+                        <ul class="text-sm text-stone-300 space-y-2">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-gold"></i> Premium Facials</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-gold"></i> Hair Treatments</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-gold"></i> Skin Rejuvenation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 2: Makeup -->
+                <div class="relative overflow-hidden p-8 rounded-xl shadow-2xl group min-h-[400px] flex flex-col justify-end border border-brand-gold/30">
+                    <!-- Background Image -->
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=2070&auto=format&fit=crop" alt="Makeup Tools" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-colors duration-300"></div>
+                    </div>
+
+                    <div class="relative z-10 text-white">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-dark">
+                            <i data-lucide="palette" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold mb-4 text-brand-gold border-b border-white/20 pb-2">Makeup Artistry</h3>
+                        <p class="text-stone-200 mb-4">
+                            Transformation & Precision. Whether it's bridal, party, or editorial, our expert artists enhance your natural beauty.
+                        </p>
+                        <ul class="text-sm text-stone-300 space-y-2">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-gold"></i> Bridal Packages</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-gold"></i> Party Makeovers</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-gold"></i> High-Definition Looks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 3: Academy -->
+                <div class="relative overflow-hidden p-8 rounded-xl shadow-2xl group min-h-[400px] flex flex-col justify-end">
+                    <!-- Background Image -->
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=2070&auto=format&fit=crop" alt="Beauty Academy Class" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-300"></div>
+                    </div>
+
+                    <div class="relative z-10 text-white">
+                        <div class="w-16 h-16 bg-brand-gold rounded-full flex items-center justify-center mb-6 text-brand-dark">
+                            <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold mb-4 border-b border-white/20 pb-2">Beauty Academy</h3>
+                        <p class="text-stone-200 mb-4">
+                            Skill development & fostering aspiring talent. Learn the trade secrets from masters with 3 decades of experience.
+                        </p>
+                        <ul class="text-sm text-stone-300 space-y-2">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-gold"></i> Certified Courses</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-gold"></i> Hands-on Training</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-gold"></i> Career Guidance</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: The Belleza Academy (Reordered for flow) -->
+    <section id="academy" class="py-20 bg-stone-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 rounded-2xl bg-white p-2 lg:p-0 shadow-xl overflow-hidden">
+                <!-- Image Side -->
+                <div class="w-full lg:w-1/2 h-64 lg:h-[500px] relative">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2069&auto=format&fit=crop" alt="Makeup Academy Class" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-brand-dark/20"></div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="w-full lg:w-1/2 p-8 lg:p-16 text-center lg:text-left">
+                    <span class="text-brand-gold font-bold tracking-widest uppercase text-sm mb-2 block">Education & Career</span>
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold text-brand-dark mb-6">The Belleza Academy</h2>
+                    <p class="text-lg text-stone-600 mb-6 leading-relaxed">
+                        Join an elite community of beauty professionals. Leveraging our <span class="font-bold text-brand-dark">30 years of industry experience</span>, we are on a mission to foster aspiring beauty enthusiasts into skilled professionals.
+                    </p>
+                    <div class="flex flex-col gap-4 mb-8">
+                        <div class="flex items-center justify-center lg:justify-start">
+                            <i data-lucide="award" class="text-brand-gold w-6 h-6 mr-3"></i>
+                            <span class="text-stone-800 font-medium">Industry Recognized Certification</span>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start">
+                            <i data-lucide="users" class="text-brand-gold w-6 h-6 mr-3"></i>
+                            <span class="text-stone-800 font-medium">Small Batches for Personal Attention</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-block bg-brand-dark text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-gold hover:text-brand-dark transition-colors">
+                        Explore Courses
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Reviews -->
+    <section id="reviews" class="py-20 bg-brand-dark">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-12">
+                <div class="flex justify-center items-center gap-1 mb-2">
+                    <i data-lucide="star" class="w-6 h-6 text-brand-gold fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 text-brand-gold fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 text-brand-gold fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 text-brand-gold fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 text-brand-gold fill-current"></i>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-serif text-white">4.8 Average Rating</h2>
+                <p class="text-stone-400 mt-2">Loved by our clients in Thane</p>
+            </div>
+
+            <!-- Review Carousel -->
+            <div class="max-w-4xl mx-auto relative">
+                <!-- Card Container -->
+                <div id="review-container" class="bg-brand-dark/50 border border-brand-gold/20 p-8 md:p-12 rounded-2xl min-h-[250px] flex flex-col justify-center items-center transition-all duration-500">
+                    <i data-lucide="quote" class="w-10 h-10 text-brand-gold/30 mb-6 mx-auto"></i>
+                    <p id="review-text" class="text-xl md:text-2xl font-serif text-stone-200 italic mb-6 fade-in">
+                        "From the moment I arrived, the staff made me feel welcome and comfortable."
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-[1px] bg-brand-gold"></div>
+                        <span id="review-author" class="text-brand-gold font-bold uppercase tracking-widest text-sm fade-in">Google Review</span>
+                        <div class="w-8 h-[1px] bg-brand-gold"></div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <button onclick="prevReview()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 p-2 text-stone-500 hover:text-brand-gold transition-colors">
+                    <i data-lucide="chevron-left" class="w-10 h-10"></i>
+                </button>
+                <button onclick="nextReview()" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 p-2 text-stone-500 hover:text-brand-gold transition-colors">
+                    <i data-lucide="chevron-right" class="w-10 h-10"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Contact & Location -->
+    <section id="contact" class="bg-brand-cream py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-4">Visit Us</h2>
+                <p class="text-stone-600">We are conveniently located in Thane West</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Contact Info -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg h-full flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-serif font-bold text-brand-dark mb-8">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-brand-cream p-3 rounded-full mr-4">
+                                    <i data-lucide="map-pin" class="text-brand-dark w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-brand-dark">Address</p>
+                                    <p class="text-stone-600">Kolbad Rd, Thane West,<br>Thane, Maharashtra 400601</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-brand-cream p-3 rounded-full mr-4">
+                                    <i data-lucide="phone" class="text-brand-dark w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-brand-dark">Phone</p>
+                                    <a href="tel:09819020670" class="text-brand-gold font-bold text-xl hover:underline">098190 20670</a>
+                                    <p class="text-xs text-stone-500 mt-1">Tap to call</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-brand-cream p-3 rounded-full mr-4">
+                                    <i data-lucide="clock" class="text-brand-dark w-6 h-6"></i>
+                                </div>
+                                <div class="w-full">
+                                    <p class="font-bold text-brand-dark mb-2">Opening Hours</p>
+                                    <ul class="text-sm text-stone-600 space-y-1 w-full">
+                                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Monday</span> <span class="text-red-500 font-bold">Closed</span></li>
+                                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Tuesday</span> <span>11:00 AM – 8:00 PM</span></li>
+                                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Wednesday</span> <span>11:00 AM – 8:00 PM</span></li>
+                                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Thursday</span> <span>11:00 AM – 8:00 PM</span></li>
+                                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Friday</span> <span>11:00 AM – 8:00 PM</span></li>
+                                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Saturday</span> <span>11:00 AM – 8:00 PM</span></li>
+                                        <li class="flex justify-between border-b border-gray-100 pb-1"><span>Sunday</span> <span>11:00 AM – 8:00 PM</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                         <a href="https://www.google.com/maps/place/Belleza+Salon+Thane/@19.2064375,72.9660226,16z/data=!4m10!1m2!2m1!1sbelleza+thane!3m6!1s0x3be7b9218d966059:0x381cf121b276de31!8m2!3d19.2064375!4d72.9743376!15sCg1iZWxsZXphIHRoYW5lkgEMYmVhdXR5X3NhbG9u4AEA!16s%2Fg%2F11t609vq37?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center justify-center w-full bg-brand-dark text-white py-3 rounded-lg hover:bg-stone-800 transition-colors">
+                            <i data-lucide="navigation" class="w-4 h-4 mr-2"></i> Get Directions
+                         </a>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="h-[500px] w-full bg-gray-300 rounded-2xl overflow-hidden shadow-lg relative group">
+                    <!-- Embedded Google Map using iframe -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.863116812803!2d72.9717627149026!3d19.206437487013143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9218d966059%3A0x381cf121b276de31!2sBelleza%20Salon%20Thane!5e0!3m2!1sen!2sin!4v1684345234567!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-stone-400 pt-20 pb-10 border-t border-stone-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Column -->
+                <div>
+                    <span class="text-brand-gold font-serif font-bold text-2xl block mb-6">Belleza Salon <span class="text-white text-sm font-sans font-light tracking-widest ml-1">THANE</span></span>
+                    <p class="text-stone-500 mb-6 leading-relaxed">
+                        Elevating beauty standards in Thane since 1995. We blend traditional pampering with modern artistry to create your best look.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-serif font-bold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#hero" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="#services" class="hover:text-brand-gold transition-colors">Services</a></li>
+                        <li><a href="#academy" class="hover:text-brand-gold transition-colors">Academy</a></li>
+                        <li><a href="#reviews" class="hover:text-brand-gold transition-colors">Reviews</a></li>
+                        <li><a href="#contact" class="hover:text-brand-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-serif font-bold text-lg mb-6">Our Services</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Bridal Makeup</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Premium Facials</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Hair Styling</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Nail Artistry</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Academy Courses</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-serif font-bold text-lg mb-6">Stay Updated</h4>
+                    <p class="text-stone-500 mb-4 text-sm">Subscribe to receive exclusive offers and beauty tips.</p>
+                    <form class="space-y-4" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your Email Address" class="w-full bg-stone-900 border border-stone-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition-colors">
+                        <button type="submit" class="w-full bg-brand-gold text-brand-dark font-bold py-3 rounded-lg hover:bg-white transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-stone-600">
+                <div class="mb-4 md:mb-0">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Belleza Salon Thane. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-brand-gold transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Consultant Floating Button -->
+    <button id="ai-fab" onclick="toggleAIModal()" class="fixed bottom-6 right-6 z-50 bg-brand-gold hover:bg-white text-brand-dark font-serif font-bold py-3 px-6 rounded-full shadow-[0_0_20px_rgba(212,175,55,0.4)] flex items-center gap-2 transition-all duration-300 hover:scale-105 group border-2 border-brand-gold">
+        <i data-lucide="sparkles" class="w-5 h-5 group-hover:text-brand-dark group-hover:animate-spin"></i>
+        <span>Ask AI Stylist</span>
+    </button>
+
+    <!-- AI Consultant Modal -->
+    <div id="ai-modal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity opacity-0" id="ai-backdrop" onclick="toggleAIModal()"></div>
+
+        <!-- Modal Panel -->
+        <div class="absolute bottom-0 right-0 md:bottom-24 md:right-6 w-full md:w-[400px] h-[80vh] md:h-[600px] bg-brand-dark border border-brand-gold/30 rounded-t-2xl md:rounded-2xl shadow-2xl flex flex-col transform transition-transform translate-y-full md:translate-y-10 opacity-0" id="ai-panel">
+            
+            <!-- Header -->
+            <div class="p-6 border-b border-white/10 flex justify-between items-center bg-black/20 rounded-t-2xl">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center text-brand-dark">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-serif font-bold text-lg">Belleza AI Stylist</h3>
+                        <p class="text-xs text-brand-gold uppercase tracking-widest">Personal Consultant</p>
+                    </div>
+                </div>
+                <button onclick="toggleAIModal()" class="text-stone-400 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Chat Area -->
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4 scroll-smooth">
+                <!-- Welcome Message -->
+                <div class="flex gap-3">
+                    <div class="w-8 h-8 rounded-full bg-brand-gold/20 flex-shrink-0 flex items-center justify-center border border-brand-gold/50">
+                        <i data-lucide="bot" class="w-4 h-4 text-brand-gold"></i>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl rounded-tl-none p-4 text-stone-200 text-sm shadow-sm">
+                        <p>Hello! I am your personal beauty consultant at Belleza Salon Thane. How can I assist you today?</p>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <button onclick="fillPrompt('Suggest a bridal look for me')" class="text-xs bg-brand-gold/10 text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-full hover:bg-brand-gold hover:text-brand-dark transition-colors">Bridal Look</button>
+                            <button onclick="fillPrompt('Which Academy course is best for beginners?')" class="text-xs bg-brand-gold/10 text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-full hover:bg-brand-gold hover:text-brand-dark transition-colors">Academy Courses</button>
+                            <button onclick="fillPrompt('Recommend a facial for dry skin')" class="text-xs bg-brand-gold/10 text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-full hover:bg-brand-gold hover:text-brand-dark transition-colors">Skin Care</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-4 border-t border-white/10 bg-black/20 rounded-b-2xl">
+                <form id="ai-form" onsubmit="handleAISubmit(event)" class="relative">
+                    <input type="text" id="user-input" placeholder="Ask about services, styles, or courses..." class="w-full bg-white/5 border border-white/10 rounded-full pl-5 pr-12 py-3 text-stone-200 placeholder-stone-500 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all text-sm">
+                    <button type="submit" id="send-btn" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-brand-gold rounded-full flex items-center justify-center text-brand-dark hover:scale-110 transition-transform disabled:opacity-50 disabled:cursor-not-allowed">
+                        <i data-lucide="send" class="w-4 h-4 ml-0.5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // ... existing menu logic ...
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Reviews Data (Existing)
+        const reviews = [
+            { text: "Relaxing facial, good service", author: "Happy Client" },
+            { text: "Superb experience, was really services and I give 5star", author: "Satisfied Customer" },
+            { text: "From the moment I arrived, the staff made me feel welcome and comfortable.", author: "Loyal Patron" },
+            { text: "The makeup course at the Academy changed my career path. Excellent teaching!", author: "Academy Student" }
+        ];
+
+        let currentReviewIndex = 0;
+        const reviewTextElement = document.getElementById('review-text');
+        const reviewAuthorElement = document.getElementById('review-author');
+        const reviewContainer = document.getElementById('review-container');
+
+        function updateReview(index) {
+            reviewTextElement.classList.remove('fade-in');
+            reviewAuthorElement.classList.remove('fade-in');
+            void reviewTextElement.offsetWidth; 
+            reviewTextElement.innerText = `"${reviews[index].text}"`;
+            reviewAuthorElement.innerText = reviews[index].author;
+            reviewTextElement.classList.add('fade-in');
+            reviewAuthorElement.classList.add('fade-in');
+        }
+
+        function nextReview() {
+            currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+            updateReview(currentReviewIndex);
+        }
+
+        function prevReview() {
+            currentReviewIndex = (currentReviewIndex - 1 + reviews.length) % reviews.length;
+            updateReview(currentReviewIndex);
+        }
+        setInterval(nextReview, 5000);
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // --- AI Modal Logic ---
+        const aiModal = document.getElementById('ai-modal');
+        const aiBackdrop = document.getElementById('ai-backdrop');
+        const aiPanel = document.getElementById('ai-panel');
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        function toggleAIModal() {
+            const isHidden = aiModal.classList.contains('hidden');
+            
+            if (isHidden) {
+                // Open
+                aiModal.classList.remove('hidden');
+                // Trigger reflow
+                void aiModal.offsetWidth;
+                
+                // Animate in
+                aiBackdrop.classList.remove('opacity-0');
+                aiPanel.classList.remove('translate-y-full', 'md:translate-y-10', 'opacity-0');
+                
+                // Focus input
+                setTimeout(() => userInput.focus(), 300);
+            } else {
+                // Animate out
+                aiBackdrop.classList.add('opacity-0');
+                aiPanel.classList.add('translate-y-full', 'md:translate-y-10', 'opacity-0');
+                
+                // Hide after animation
+                setTimeout(() => {
+                    aiModal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        function fillPrompt(text) {
+            userInput.value = text;
+            userInput.focus();
+        }
+
+        function appendUserMessage(text) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'flex gap-3 justify-end';
+            msgDiv.innerHTML = `
+                <div class="bg-brand-gold text-brand-dark rounded-2xl rounded-tr-none p-4 text-sm shadow-sm max-w-[85%]">
+                    <p>${text}</p>
+                </div>
+            `;
+            chatMessages.appendChild(msgDiv);
+            scrollToBottom();
+        }
+
+        function appendBotMessage(text, isLoading = false) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'flex gap-3 bot-message';
+            
+            let content = text;
+            if (isLoading) {
+                content = `
+                    <div class="flex space-x-1 h-5 items-center">
+                        <div class="w-2 h-2 bg-brand-gold rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                        <div class="w-2 h-2 bg-brand-gold rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                        <div class="w-2 h-2 bg-brand-gold rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                    </div>
+                `;
+            }
+
+            msgDiv.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-brand-gold/20 flex-shrink-0 flex items-center justify-center border border-brand-gold/50">
+                    <i data-lucide="bot" class="w-4 h-4 text-brand-gold"></i>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl rounded-tl-none p-4 text-stone-200 text-sm shadow-sm max-w-[85%]">
+                    <div class="prose prose-invert prose-sm leading-relaxed">${content}</div>
+                </div>
+            `;
+            chatMessages.appendChild(msgDiv);
+            scrollToBottom();
+            // Re-initialize icons for the new bot icon
+            lucide.createIcons();
+            return msgDiv;
+        }
+
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        async function handleAISubmit(e) {
+            e.preventDefault();
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            // UI Updates
+            userInput.value = '';
+            appendUserMessage(text);
+            const loadingMsg = appendBotMessage('', true);
+            sendBtn.disabled = true;
+
+            // Gemini API Setup
+            const apiKey = "AIzaSyBKVdtTWvYRlsDkVyoChlhyOpZdyhRU9Ng"; // Runtime injection
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            const systemPrompt = `
+                You are a sophisticated, high-end AI Beauty Consultant for "Belleza Salon Thane". 
+                
+                Your Persona:
+                - Professional, warm, luxurious, and knowledgeable.
+                - Use emojis sparingly but effectively (✨, 💄, 🌸).
+                - Keep responses concise (under 80 words if possible).
+
+                Our Services:
+                1. Beauty Parlour: Relaxing Facials, Hair Spa, Manicure/Pedicure, Skin Rejuvenation.
+                2. Makeup Artistry: Bridal Makeup, Party Looks, Editorial/High-Def Makeup.
+                3. The Academy: Professional courses for aspiring makeup artists and beauticians. 30 years of legacy.
+
+                Instructions:
+                - Recommend ONLY our services based on the user's need.
+                - If they ask for prices/bookings, politely ask them to click the "Book Now" button or call 098190 20670.
+                - If they mention a specific occasion (Wedding, Party), suggest a complete look or package.
+                - If they ask about learning/career, direct them to the Academy.
+            `;
+
+            const payload = {
+                contents: [{
+                    role: "user",
+                    parts: [{ text: text }]
+                }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                }
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+                
+                // Remove loading message
+                loadingMsg.remove();
+                sendBtn.disabled = false;
+
+                if (data.candidates && data.candidates[0].content) {
+                    const reply = data.candidates[0].content.parts[0].text;
+                    // Simple formatting: Convert newlines to breaks
+                    const formattedReply = reply.replace(/\n/g, '<br>');
+                    appendBotMessage(formattedReply);
+                } else {
+                    appendBotMessage("I apologize, but I am currently unable to connect to the beauty network. Please try again later or call us directly. ✨");
+                }
+
+            } catch (error) {
+                console.error('API Error:', error);
+                loadingMsg.remove();
+                sendBtn.disabled = false;
+                appendBotMessage("I apologize, but I'm having trouble connecting right now. Please call us at 098190 20670 for immediate assistance.");
+            }
+        }
+    </script>
+</body>
+</html>
